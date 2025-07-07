@@ -333,4 +333,6 @@ else(ROS_EDITION STREQUAL "ROS2")
     launch_ROS2
   )
 
+  ament_export_dependencies(rclcpp sensor_msgs std_msgs)
+  ament_export_include_directories(include)
 endif()
