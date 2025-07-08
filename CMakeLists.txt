@@ -333,12 +333,12 @@ else(ROS_EDITION STREQUAL "ROS2")
     ament_lint_auto_find_test_dependencies()
   endif()
 
+  ament_export_dependencies(rclcpp sensor_msgs std_msgs)
+  ament_export_include_directories(include)
+  ament_export_targets(export_${PROJECT_NAME})
   ament_auto_package(INSTALL_TO_SHARE
     config
     launch_ROS2
   )
 
-  ament_export_dependencies(rclcpp sensor_msgs std_msgs)
-  ament_export_include_directories(include)
-  ament_export_targets(export_${PROJECT_NAME})
 endif()
