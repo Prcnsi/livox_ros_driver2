@@ -283,7 +283,7 @@ else(ROS_EDITION STREQUAL "ROS2")
     src/call_back/lidar_common_callback.cpp
     src/call_back/livox_lidar_callback.cpp
   )
-
+  add_dependencies(${PROJECT_NAME} ${cpp_typesupport_target})
   target_include_directories(${PROJECT_NAME} PRIVATE ${livox_sdk_INCLUDE_DIRS})
 
   # get include directories of custom msg headers
@@ -335,7 +335,6 @@ else(ROS_EDITION STREQUAL "ROS2")
 
   ament_export_dependencies(rclcpp sensor_msgs std_msgs)
   ament_export_include_directories(include)
-  ament_export_targets(export_${PROJECT_NAME})
   ament_auto_package(INSTALL_TO_SHARE
     config
     launch_ROS2
