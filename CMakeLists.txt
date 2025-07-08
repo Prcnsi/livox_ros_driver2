@@ -170,6 +170,7 @@ if(ROS_EDITION STREQUAL "ROS1")
   #---------------------------------------------------------------------------------------
 
   install(TARGETS ${PROJECT_NAME}_node
+    EXPORT export_${PROJECT_NAME}
     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -178,7 +179,11 @@ if(ROS_EDITION STREQUAL "ROS1")
   install(DIRECTORY launch_ROS1/
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch_ROS1
   )
-
+  
+  install(DIRECTORY
+    include/
+    DESTINATION include
+  )
   #---------------------------------------------------------------------------------------
   # end of CMakeList.txt
   #---------------------------------------------------------------------------------------
